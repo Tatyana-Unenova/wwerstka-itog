@@ -273,34 +273,53 @@ main {
 }
 .card-wrapper {
   background: #f8f8f8;
+  position: relative;
 }
 .card {
   padding: 25px 29px 20px 18px;
   background: #f8f8f8;
 }
-.hover {
-  display: block;
-  width: 360px;
-  height: 420px;
-
-  background-image: url(./img/s2k2.png);
+.btn {
+  display: inline-block;
+  font-size: 0;
+  position: relative;
+  overflow: hidden;
+  border-radius: 4px;
 }
 
-.btn:hover:before {
-  content: url("./img/heaForma4.png") "Add to Cart";
-  display: flex;
-  gap: 11px;
-  justify-content: space-between;
-  width: 138px;
-  height: 43px;
-  padding: 8px;
-  margin: 188.5px 111px;
-  border: 1px solid #ffffff;
+.btn>img {
+  max-width: 400px;
 }
 
-.hover:hover {
+.btn:hover::before,
+.btn:focus::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
   background-color: rgba(58, 56, 56, 0.86);
+  cursor: pointer;
 }
+
+.btn:hover::after,
+.btn:focus::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 40%;
+  height: 44px;
+  width: 139px;
+  background-image: url("./img/Add\ to\ cart.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center center;
+  margin-left: -32px;
+  margin-top: -36px;
+  cursor: pointer;
+}
+
 
 .card h3 {
   font-family: "Lato";
@@ -345,9 +364,10 @@ main {
   padding: 14.5px;
   text-align: center;
 }
-.btn-wrapper:hover {
+.btn-wrapper:hover, .btnbig:hover {
   background: #f16d7f;
   border: 1px solid #ff6a6a;
+  color: #ffffff;
 }
 button {
   width: 134px;
@@ -362,10 +382,10 @@ button {
   background-color: #ffffff;
   text-align: center;
 }
-button:hover {
-  color: #ffffff;
+/* button:hover {
+  
   background: #f16d7f;
-}
+} */
 .art1 {
   margin: 0 auto;
   width: 1600px;
